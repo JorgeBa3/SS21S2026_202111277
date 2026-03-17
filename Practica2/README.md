@@ -115,8 +115,18 @@ los visuales se actualizan en tiempo real.
 ### Dashboard con filtro por aerolínea
 ![alt text](image-7.png)
 
+
+### Página 1 - Resumen Ejecutivo
+![alt text](image-8.png)
 ---
 
+### Página 2 — Análisis detallado
+![alt text](image-8.png)
+
+**Hallazgo:** Crecimiento de ingresos 2024→2025: -0.17%  
+Iberia lidera en 2025 mientras Copa Airlines dominó en 2024.
+
+---
 ## Conclusiones estratégicas
 
 - **Copa Airlines** lidera en ingresos totales USD.
