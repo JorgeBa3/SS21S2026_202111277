@@ -11,8 +11,8 @@
   DTS:LocaleID="4106"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{22847B70-7C36-4AC5-B8DE-8A4D0AE130ED}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{CED30F35-4E6B-4890-976F-6FC3E6A37055}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,8 +29,20 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzyxn7yUUekqlxVPy+lUjRwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADIhxoBiQbo99EmcUeMv7FXM0G3fS3dLdBRyVWXs1ZkEAAAAAAOgAAAAAIAACAAAADLPSpGfkBghUGXEtwp8+BEmgX2D1iy/ub6lgsnbDEJ/DAAAABSTxP/5z6Yam5Oy9SXIOZcNryrB2/9UsguqiX0RbgTtqS47OsYQdQiNhdyIs2GYX1AAAAA5RkOCXwdg+HIFL7Do3h1IhLJipwqq53FMZi88Wn5csDr7YzBHaMa2rLz2zTbzIPdoHf8HvbuQU5yLtbRk1u+Sw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzyxn7yUUekqlxVPy+lUjRwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAa+E2FhSQMF6y2Giz/CakNzueLUGyOAFbziOcuj8AKJwAAAAAOgAAAAAIAACAAAAAQv5+Lqw/cSKnIJzLcmVFLQjfmK5RWcsV0uM4qO9kU1jAAAABYOGIsLDV0kM/Ary/ecqZsCJg3toQcQ1F9AC8N/yJAjJUyVQltT77a4y3jTbCveNVAAAAA3R0dwkwa6TeM0a33C1kNW8iHjZ76+WFthtazQD8jvvTRbM0HpPuel2yaYJjPi1JgVAn+XJWQN7RGOG7Lx+aGJw</DTS:Password>
         </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{BD34881E-86AB-43F2-8039-FC2A99CA7F05}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\georg\OneDrive\Escritorio\2026\Ultimo semestre\Lab Semi\Nueva carpeta\SS21S2026_202111277\Proyecto1\SGFood_Proyecto1_Muestra.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1183,6 +1195,518 @@ FROM dbo.TransaccionesVenta</property>
               name="OLE DB Source Output"
               startId="Package\Cargar Dim_Producto\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Cargar Excel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{16C74A12-B22A-4556-B2D9-390497BCF642}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar Excel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cargar Excel\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">SGFood_Proyecto1_Muestra$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Excel\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Fecha]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ClienteId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ClienteId]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ClienteId]"
+                      name="ClienteId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ClienteNombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ClienteNombre]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ClienteNombre]"
+                      name="ClienteNombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[SegmentoCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[SegmentoCliente]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[SegmentoCliente]"
+                      name="SegmentoCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[CanalVenta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CanalVenta]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[CanalVenta]"
+                      name="CanalVenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Departamento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Departamento]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Departamento]"
+                      name="Departamento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Municipio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Municipio]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Municipio]"
+                      name="Municipio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ProductoSKU]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProductoSKU]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ProductoSKU]"
+                      name="ProductoSKU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ProductoNombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProductoNombre]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ProductoNombre]"
+                      name="ProductoNombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Marca]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Marca]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Marca]"
+                      name="Marca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Categoria]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Subcategoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Subcategoria]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Subcategoria]"
+                      name="Subcategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Fabricante]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fabricante]"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Fabricante]"
+                      name="Fabricante"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[CantidadVendida]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CantidadVendida]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[CantidadVendida]"
+                      name="CantidadVendida"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[InventarioInicial]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[InventarioInicial]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[InventarioInicial]"
+                      name="InventarioInicial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[InventarioFinal]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[InventarioFinal]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[InventarioFinal]"
+                      name="InventarioFinal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[PrecioUnitario]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[PrecioUnitario]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[PrecioUnitario]"
+                      name="PrecioUnitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[CostoUnitario]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CostoUnitario]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[CostoUnitario]"
+                      name="CostoUnitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Descuento]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Descuento]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[Descuento]"
+                      name="Descuento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ImporteNeto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ImporteNeto]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[ImporteNeto]"
+                      name="ImporteNeto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[MargenEstimado]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[MargenEstimado]"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].Columns[MargenEstimado]"
+                      name="MargenEstimado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha]"
+                      dataType="date"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ClienteId]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClienteId" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ClienteNombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClienteNombre" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[SegmentoCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="SegmentoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CanalVenta]"
+                      dataType="wstr"
+                      length="255"
+                      name="CanalVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Departamento]"
+                      dataType="wstr"
+                      length="255"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Municipio]"
+                      dataType="wstr"
+                      length="255"
+                      name="Municipio" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProductoSKU]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductoSKU" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProductoNombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductoNombre" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Marca]"
+                      dataType="wstr"
+                      length="255"
+                      name="Marca" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Subcategoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="Subcategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fabricante]"
+                      dataType="wstr"
+                      length="255"
+                      name="Fabricante" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CantidadVendida]"
+                      dataType="r8"
+                      name="CantidadVendida" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[InventarioInicial]"
+                      dataType="r8"
+                      name="InventarioInicial" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[InventarioFinal]"
+                      dataType="r8"
+                      name="InventarioFinal" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[PrecioUnitario]"
+                      dataType="r8"
+                      name="PrecioUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[CostoUnitario]"
+                      dataType="r8"
+                      name="CostoUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Descuento]"
+                      dataType="r8"
+                      name="Descuento" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ImporteNeto]"
+                      dataType="r8"
+                      name="ImporteNeto" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[MargenEstimado]"
+                      dataType="r8"
+                      name="MargenEstimado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha]"
+                      dataType="date"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha]"
+                      name="Fecha" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ClienteId]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ClienteId]"
+                      name="ClienteId" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ClienteNombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ClienteNombre]"
+                      name="ClienteNombre" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[SegmentoCliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[SegmentoCliente]"
+                      name="SegmentoCliente" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[CanalVenta]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[CanalVenta]"
+                      name="CanalVenta" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Departamento]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Departamento]"
+                      name="Departamento" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Municipio]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Municipio]"
+                      name="Municipio" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ProductoSKU]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ProductoSKU]"
+                      name="ProductoSKU" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ProductoNombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ProductoNombre]"
+                      name="ProductoNombre" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Marca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Marca]"
+                      name="Marca" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Subcategoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Subcategoria]"
+                      name="Subcategoria" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Fabricante]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Fabricante]"
+                      name="Fabricante" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[CantidadVendida]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[CantidadVendida]"
+                      name="CantidadVendida" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[InventarioInicial]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[InventarioInicial]"
+                      name="InventarioInicial" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[InventarioFinal]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[InventarioFinal]"
+                      name="InventarioFinal" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[PrecioUnitario]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[PrecioUnitario]"
+                      name="PrecioUnitario" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[CostoUnitario]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[CostoUnitario]"
+                      name="CostoUnitario" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Descuento]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Descuento]"
+                      name="Descuento" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ImporteNeto]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ImporteNeto]"
+                      name="ImporteNeto" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[MargenEstimado]"
+                      dataType="r8"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[MargenEstimado]"
+                      name="MargenEstimado" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2481,6 +3005,14 @@ FROM dbo.TransaccionesVenta</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
       DTS:To="Package\Cargar Fact_Ventas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD1FD718-C1F4-4BB6-8755-4C3360AE76F8}"
+      DTS:From="Package\Cargar Fact_Ventas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Cargar Excel" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -2493,7 +3025,7 @@ FROM dbo.TransaccionesVenta</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="176,42"
           Id="Package\Cargar Dim_Cliente"
@@ -2503,7 +3035,7 @@ FROM dbo.TransaccionesVenta</property>
           Id="Package\Cargar Dim_Geografia"
           TopLeft="86.5,290" />
         <NodeLayout
-          Size="155,42"
+          Size="180,42"
           Id="Package\Cargar Dim_Producto"
           TopLeft="86.5,90.5" />
         <NodeLayout
@@ -2512,30 +3044,18 @@ FROM dbo.TransaccionesVenta</property>
           TopLeft="86.5,392" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="164,132.5">
+          TopLeft="178.25,132.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16,55.5"
+              EndConnector="0,55.5"
               Start="0,0"
-              End="16,48">
+              End="0,48">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.75"
-                    Point2="0,27.75"
-                    Point3="4,27.75" />
-                  <mssgle:LineSegment
-                    End="12,27.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12,27.75"
-                    Point2="16,27.75"
-                    Point3="16,31.75" />
-                  <mssgle:LineSegment
-                    End="16,48" />
+                    End="0,48" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2588,6 +3108,44 @@ FROM dbo.TransaccionesVenta</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Cargar Excel"
+          TopLeft="139,517" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="174.5,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.5,83"
+              Start="0,0"
+              End="33.5,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="29.5,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.5,41.5"
+                    Point2="33.5,41.5"
+                    Point3="33.5,45.5" />
+                  <mssgle:LineSegment
+                    End="33.5,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2597,13 +3155,13 @@ FROM dbo.TransaccionesVenta</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Cargar Dim_Cliente\OLE DB Source"
-          TopLeft="35.5,35.5" />
-        <NodeLayout
           Size="177,42"
           Id="Package\Cargar Dim_Cliente\OLE DB Destination"
           TopLeft="37,207" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Cargar Dim_Cliente\OLE DB Source"
+          TopLeft="35.5,35.5" />
         <EdgeLayout
           Id="Package\Cargar Dim_Cliente.Paths[OLE DB Source Output]"
           TopLeft="114,77.5">
@@ -2666,7 +3224,7 @@ FROM dbo.TransaccionesVenta</property>
     design-time-name="Package\Cargar Dim_Geografia">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\Cargar Dim_Geografia\OLE DB Source"
@@ -2694,7 +3252,9 @@ FROM dbo.TransaccionesVenta</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2725,7 +3285,7 @@ FROM dbo.TransaccionesVenta</property>
     design-time-name="Package\Cargar Dim_Producto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\Cargar Dim_Producto\OLE DB Source"
@@ -2753,7 +3313,9 @@ FROM dbo.TransaccionesVenta</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2786,9 +3348,21 @@ FROM dbo.TransaccionesVenta</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="192,42"
+          Id="Package\Cargar Fact_Ventas\Lookup Dim_Geografia"
+          TopLeft="65.5,345" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Cargar Fact_Ventas\Lookup Dim_Tiempo"
+          TopLeft="69.5,438" />
+        <NodeLayout
           Size="157,42"
           Id="Package\Cargar Fact_Ventas\OLE DB Source"
           TopLeft="35.5,35.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Cargar Fact_Ventas\Lookup Dim_Cliente"
+          TopLeft="65.5,236" />
         <NodeLayout
           Size="278,42"
           Id="Package\Cargar Fact_Ventas\Lookup Dim_Producto"
@@ -2828,21 +3402,83 @@ FROM dbo.TransaccionesVenta</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Cargar Fact_Ventas\Lookup Dim_Cliente"
-          TopLeft="65.5,236" />
-        <NodeLayout
-          Size="192,42"
-          Id="Package\Cargar Fact_Ventas\Lookup Dim_Geografia"
-          TopLeft="65.5,345" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Cargar Fact_Ventas\Lookup Dim_Tiempo"
-          TopLeft="69.5,438" />
+        <EdgeLayout
+          Id="Package\Cargar Fact_Ventas.Paths[Lookup Match Output3]"
+          TopLeft="249.5,456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="357.5,0"
+              Start="0,0"
+              End="350,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="350,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="126.80861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Fact_Ventas.Paths[Lookup Match Output2]"
+          TopLeft="160.5,387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Fact_Ventas.Paths[Lookup Match Output1]"
+          TopLeft="158,278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Cargar Fact_Ventas.Paths[Lookup Match Output]"
           TopLeft="202.5,188.5">
@@ -2879,84 +3515,81 @@ FROM dbo.TransaccionesVenta</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar Fact_Ventas.Paths[Lookup Match Output1]"
-          TopLeft="158,278">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,67"
-              Start="0,0"
-              End="0,59.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar Fact_Ventas.Paths[Lookup Match Output2]"
-          TopLeft="160.5,387">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,15.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cargar Fact_Ventas.Paths[Lookup Match Output3]"
-          TopLeft="249.5,456">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="357.5,0"
-              Start="0,0"
-              End="350,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="350,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="126.80861328125,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Cargar Fact_Ventas\Lookup Dim_Geografia">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Geografia]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Fact_Ventas\Lookup Dim_Tiempo">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Tiempo]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Cargar Fact_Ventas\OLE DB Source">
     <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Fact_Ventas\Lookup Dim_Cliente">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Cliente]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -2968,7 +3601,7 @@ FROM dbo.TransaccionesVenta</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2978,7 +3611,7 @@ FROM dbo.TransaccionesVenta</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2998,72 +3631,28 @@ FROM dbo.TransaccionesVenta</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Cargar Excel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Cargar Excel\Excel Source"
+          TopLeft="254,239" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Cargar Fact_Ventas\Lookup Dim_Cliente">
+    design-time-name="Package\Cargar Excel\Excel Source">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Cliente]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Cargar Fact_Ventas\Lookup Dim_Geografia">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Geografia]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Cargar Fact_Ventas\Lookup Dim_Tiempo">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Tiempo]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

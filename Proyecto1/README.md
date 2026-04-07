@@ -81,5 +81,12 @@ SASS
 -- Procesar cubo
 ![alt text](image-28.png)
 
+-- Carga excel
+![alt text](image-29.png)
 
+--- Agregar Excel source
 
+![alt text](image-30.png)
+
+--- Pipeline actualizada
+![alt text](image-31.png)
