@@ -1,0 +1,3 @@
+TransaccionId|FechaTransaccion|ClienteId|ClienteNombre|SegmentoCliente|CanalVenta|Departamento|Municipio|ProductoSKU|ProductoNombre|Marca|Categoria|Subcategoria|Fabricante|CantidadVendida|ExistenciaAntesVenta|ExistenciaDespuesVenta|PrecioUnitario|CostoUnitario|DescuentoAplicado|TotalLinea|FechaRegistroUtc
+90001|2023-10-01|CL-001|Juan Perez|Minorista|Tienda|Guatemala|Guatemala|PROD-100|Galletas|Bimbo|Alimentos|Snacks|Bimbo|5|100|95|10.00|5.00|0.00|50.00|2023-10-01 10:00:00
+90002|2023-10-02|CL-002|Maria Lopez|Mayorista|Online|Sacatepequez|Antigua|PROD-101|Jugo|Del Valle|Bebidas|Jugos|Coca Cola|20|200|180|15.00|8.00|10.00|290.00|2023-10-02 11:30:00

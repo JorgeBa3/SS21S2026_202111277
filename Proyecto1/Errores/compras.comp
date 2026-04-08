@@ -1,0 +1,3 @@
+TransaccionId|FechaTransaccion|ClienteId|ClienteNombre|SegmentoCliente|CanalVenta|Departamento|Municipio|ProductoSKU|ProductoNombre|Marca|Categoria|Subcategoria|Fabricante|CantidadVendida|ExistenciaAntesVenta|ExistenciaDespuesVenta|PrecioUnitario|CostoUnitario|DescuentoAplicado|TotalLinea|FechaRegistroUtc
+80001|2023-10-05|PROV-01|Proveedor X|Distribuidor|Directo|Guatemala|Mixco|PROD-100|Galletas|Bimbo|Alimentos|Snacks|Bimbo|0|95|500|0.00|5.00|0.00|0.00|2023-10-05 08:00:00
+80002|2023-10-06|PROV-02|Proveedor Y|Distribuidor|Directo|Sacatepequez|Antigua|PROD-101|Jugo|Del Valle|Bebidas|Jugos|Coca Cola|0|180|400|0.00|8.00|0.00|0.00|2023-10-06 09:15:00
